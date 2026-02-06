@@ -59,16 +59,39 @@ export function checkTnved(codeRaw: string) {
     }
   }
 
-  // 3) ranges
-  for (const r of g.rules.ranges) {
-    if (cmpBig(code, r.from) >= 0 && cmpBig(code, r.to) <= 0) {
+ // 3) ranges (универсально)
+for (const r of g.rules.ranges as any[]) {
+  const from = String(r.from ?? "");
+  const to = String(r.to ?? "");
+
+  // если from/to 4 или 6 знаков — это префиксный диапазон
+  if ((from.length === 4 || from.length === 6) && from.length === to.length) {
+    const L = from.length;
+    if (code.length >= L) {
+      const head = code.slice(0, L);
+      if (head >= from && head <= to) {
+        return {
+          ok: true,
+          reason: `Требуется пломба: диапазон ${from}–${to} (по префиксу ${L})`,
+          matched: { type: "range_prefix", from, to, len: L }
+        };
+      }
+    }
+    continue;
+  }
+
+  // если from/to 10 знаков — числовой диапазон
+  if (from.length === 10 && to.length === 10) {
+    if (cmpBig(code, from) >= 0 && cmpBig(code, to) <= 0) {
       return {
-        ok: true as const,
-        reason: `Требуется пломба: диапазон ${r.from}–${r.to}`,
-        matched: { type: "range" as const, ...r }
+        ok: true,
+        reason: `Требуется пломба: диапазон ${from}–${to}`,
+        matched: { type: "range_numeric", from, to }
       };
     }
   }
+}
+
 
   return { ok: false as const, reason: "По текущим правилам (этап 1) пломба не требуется" };
 }

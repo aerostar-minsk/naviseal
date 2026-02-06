@@ -14,10 +14,10 @@ type EecRules = {
   rules: {
     exact: string[];
     prefix: string[];
-    ranges: Array<{ from: string; to: string }>;
+    ranges: Array<{ from: string; to: string; len: number; mode: "prefix" | "numeric" }>;
   };
-  stats?: unknown;
 };
+
 
 function readJson<T>(p: string): T {
   return JSON.parse(fs.readFileSync(p, "utf-8"));
@@ -44,10 +44,13 @@ function main() {
   const rangeKey = (a: string, b: string) => `${a}..${b}`;
   const rangeMap = new Map<string, { from: string; to: string; tag?: string; note?: string; source?: string }>();
   for (const r of staticRules.ranges) rangeMap.set(rangeKey(r.from, r.to), { ...r, source: "static" });
-  for (const r of eec.rules.ranges) {
-    const k = rangeKey(r.from, r.to);
-    if (!rangeMap.has(k)) rangeMap.set(k, { ...r, source: "eec" });
-  }
+  const rangeKey2 = (r: {from:string;to:string;len:number;mode:string}) => `${r.from}..${r.to}..${r.len}..${r.mode}`;
+
+for (const r of eec.rules.ranges) {
+  const k = rangeKey2(r);
+  if (!rangeMap.has(k)) rangeMap.set(k, { ...r, source: "eec" } as any);
+}
+
 
   const prefixSet = new Set<string>([...eec.rules.prefix]);
 
