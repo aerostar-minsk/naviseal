@@ -1,0 +1,31 @@
+{
+  "name": "seal-checker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "import:csv": "tsx scripts/import_rules.ts",
+    "fetch:eec": "tsx scripts/fetch_eec_pdf.ts",
+    "merge:rules": "tsx scripts/merge_rules.ts",
+    "update:rules": "npm run import:csv && npm run fetch:eec && python scripts/parse_eec_pdf.py data/eec_registry.pdf data/eec_rules.json && npm run merge:rules"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "csv-parse": "^5.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.0.0"
+  }
+}
