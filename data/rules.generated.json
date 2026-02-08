@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-02-07T05:13:07.992Z",
+  "generatedAt": "2026-02-08T05:41:37.832Z",
   "sources": {
     "eec": "EEC registry (special economic measures) — robust table parser",
-    "eecGeneratedAt": "2026-02-07T05:13:07.470657Z",
-    "staticUpdatedAt": "2026-02-07T05:13:01.287Z"
+    "eecGeneratedAt": "2026-02-08T05:41:37.391696Z",
+    "staticUpdatedAt": "2026-02-08T05:41:31.095Z"
   },
   "rules": {
     "exact": [
