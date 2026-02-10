@@ -1355,8 +1355,213 @@
         "source": "eec"
       },
       {
-        "code": "8402120001",
+        "code": "7217101000",
         "source": "eec"
+      },
+      {
+        "code": "7217103100",
+        "source": "eec"
+      },
+      {
+        "code": "7217103900",
+        "source": "eec"
+      },
+      {
+        "code": "7217105000",
+        "source": "eec"
+      },
+      {
+        "code": "7217109000",
+        "source": "eec"
+      },
+      {
+        "code": "7217203000",
+        "source": "eec"
+      },
+      {
+        "code": "7217205000",
+        "source": "eec"
+      },
+      {
+        "code": "7217209000",
+        "source": "eec"
+      },
+      {
+        "code": "7217902000",
+        "source": "eec"
+      },
+      {
+        "code": "7312104909",
+        "source": "eec"
+      },
+      {
+        "code": "7312106109",
+        "source": "eec"
+      },
+      {
+        "code": "7312108101",
+        "source": "eec"
+      },
+      {
+        "code": "7312108108",
+        "source": "eec"
+      },
+      {
+        "code": "7312108301",
+        "source": "eec"
+      },
+      {
+        "code": "7312108308",
+        "source": "eec"
+      },
+      {
+        "code": "7312108501",
+        "source": "eec"
+      },
+      {
+        "code": "7312108508",
+        "source": "eec"
+      },
+      {
+        "code": "7314140000",
+        "source": "eec"
+      },
+      {
+        "code": "7314190000",
+        "source": "eec"
+      },
+      {
+        "code": "7314410000",
+        "source": "eec"
+      },
+      {
+        "code": "7318158100",
+        "source": "eec"
+      },
+      {
+        "code": "7318158900",
+        "source": "eec"
+      },
+      {
+        "code": "7318159008",
+        "source": "eec"
+      },
+      {
+        "code": "7318169109",
+        "source": "eec"
+      },
+      {
+        "code": "7318169900",
+        "source": "eec"
+      },
+      {
+        "code": "7322110000",
+        "source": "eec"
+      },
+      {
+        "code": "7322190000",
+        "source": "eec"
+      },
+      {
+        "code": "7323940000",
+        "source": "eec"
+      },
+      {
+        "code": "8207401000",
+        "source": "eec"
+      },
+      {
+        "code": "8207403000",
+        "source": "eec"
+      },
+      {
+        "code": "8207409000",
+        "source": "eec"
+      },
+      {
+        "code": "8207501000",
+        "source": "eec"
+      },
+      {
+        "code": "8207503000",
+        "source": "eec"
+      },
+      {
+        "code": "8207505000",
+        "source": "eec"
+      },
+      {
+        "code": "8309901000",
+        "source": "eec"
+      },
+      {
+        "code": "8309909000",
+        "source": "eec"
+      },
+      {
+        "code": "8403101000",
+        "source": "eec"
+      },
+      {
+        "code": "8403109000",
+        "source": "eec"
+      },
+      {
+        "code": "8411810002",
+        "source": "eec"
+      },
+      {
+        "code": "8411810003",
+        "source": "eec"
+      },
+      {
+        "code": "8411810008",
+        "source": "eec"
+      },
+      {
+        "code": "8413910008",
+        "source": "eec"
+      },
+      {
+        "code": "8418109000",
+        "source": "eec"
+      },
+      {
+        "code": "8428700001",
+        "source": "eec"
+      },
+      {
+        "code": "8428907800",
+        "source": "eec"
+      },
+      {
+        "code": "8429110010",
+        "source": "eec"
+      },
+      {
+        "code": "8429110090",
+        "source": "eec"
+      },
+      {
+        "code": "8429519900",
+        "source": "eec"
+      },
+      {
+        "code": "8432900000",
+        "source": "eec"
+      },
+      {
+        "code": "8433900000",
+        "source": "eec"
+      },
+      {
+        "code": "8436100000",
+        "source": "eec"
+      },
+      {
+        "code": "8517",
+        "tag": "техника",
+        "source": "static"
       },
       {
         "code": "8402191001",
