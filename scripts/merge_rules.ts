@@ -9,15 +9,22 @@ type StaticRules = {
 };
 
 type EecRules = {
-  source: string;
-  generatedAt: string;
+  source?: string;
+  generatedAt?: string;
   rules: {
-    exact: string[];
-    prefix: string[];
-    ranges: Array<{ from: string; to: string; len: number; mode: "prefix" | "numeric" }>;
+    prefixObjects?: Array<{ prefix: string; raw?: string | null }>;
+    exact?: string[];
+    ranges?: Array<{ from: string; to: string; len?: number; mode?: "prefix" | "numeric"; raw?: string }>;
   };
 };
 
+type PrefixRule = {
+  prefix: string;
+  source: "static" | "eec";
+  raw?: string;
+  tag?: string;
+  note?: string;
+};
 
 function readJson<T>(p: string): T {
   return JSON.parse(fs.readFileSync(p, "utf-8"));
@@ -25,8 +32,8 @@ function readJson<T>(p: string): T {
 
 function main() {
   const dataDir = path.join(process.cwd(), "data");
-  const staticPath = path.join(dataDir, "rules.json"); // из CSV
-  const eecPath = path.join(dataDir, "eec_rules.json"); // из PDF
+  const staticPath = path.join(dataDir, "rules.json");
+  const eecPath = path.join(dataDir, "eec_rules.json");
   const outPath = path.join(dataDir, "rules.generated.json");
 
   if (!fs.existsSync(staticPath)) throw new Error("Нет data/rules.json — сначала npm run import:csv");
@@ -35,42 +42,73 @@ function main() {
   const staticRules = readJson<StaticRules>(staticPath);
   const eec = readJson<EecRules>(eecPath);
 
-  const exactMap = new Map<string, { code: string; tag?: string; note?: string; source?: string }>();
+  // -------- exact: берём статичные и ЕЭК, но в итог кладём только 10-значные --------
+  const exactMap = new Map<string, { code: string; tag?: string; note?: string; source: "static" | "eec" }>();
+
   for (const e of staticRules.exact) exactMap.set(e.code, { ...e, source: "static" });
-  for (const code of eec.rules.exact) {
-    if (!exactMap.has(code)) exactMap.set(code, { code, source: "eec" });
+  for (const code of eec.rules.exact ?? []) if (!exactMap.has(code)) exactMap.set(code, { code, source: "eec" });
+
+  // -------- prefix: по уму --------
+  const prefixByValue = new Map<string, PrefixRule>();
+
+  // (A) ЕЭК prefixObjects — источник eec + raw только если реально есть "из ..."
+  for (const it of eec.rules.prefixObjects ?? []) {
+    const p = String(it.prefix ?? "").trim();
+    if (!p) continue;
+    prefixByValue.set(p, {
+      prefix: p,
+      source: "eec",
+      raw: it.raw ?? undefined
+    });
   }
 
-  const rangeKey = (a: string, b: string) => `${a}..${b}`;
-  const rangeMap = new Map<string, { from: string; to: string; tag?: string; note?: string; source?: string }>();
-  for (const r of staticRules.ranges) rangeMap.set(rangeKey(r.from, r.to), { ...r, source: "static" });
-  const rangeKey2 = (r: {from:string;to:string;len:number;mode:string}) => `${r.from}..${r.to}..${r.len}..${r.mode}`;
+  // (B) переносим 4/6 из exact (static/eec) в prefix, если их ещё нет
+  for (const e of exactMap.values()) {
+    if (e.code.length === 4 || e.code.length === 6) {
+      if (!prefixByValue.has(e.code)) {
+        prefixByValue.set(e.code, { prefix: e.code, source: e.source });
+      }
+    }
+  }
 
-for (const r of eec.rules.ranges) {
-  const k = rangeKey2(r);
-  if (!rangeMap.has(k)) rangeMap.set(k, { ...r, source: "eec" } as any);
-}
+  // -------- ranges --------
+  const rangeKey = (r: any) => `${r.from}..${r.to}..${r.len ?? ""}..${r.mode ?? ""}..${r.raw ?? ""}..${r.tag ?? ""}..${r.note ?? ""}`;
+  const rangeMap = new Map<string, any>();
 
+  for (const r of staticRules.ranges) rangeMap.set(rangeKey(r), { ...r, source: "static" });
 
-  const prefixSet = new Set<string>([...eec.rules.prefix]);
+  for (const r of eec.rules.ranges ?? []) {
+    const rr = { from: r.from, to: r.to, len: r.len, mode: r.mode, raw: r.raw, source: "eec" };
+    const k = rangeKey(rr);
+    if (!rangeMap.has(k)) rangeMap.set(k, rr);
+  }
+
+  // -------- финал --------
+  const exact10 = Array.from(exactMap.values())
+    .filter((x) => x.code.length === 10)
+    .sort((a, b) => a.code.localeCompare(b.code));
+
+  const prefix = Array.from(prefixByValue.values()).sort((a, b) => a.prefix.localeCompare(b.prefix));
+  const ranges = Array.from(rangeMap.values()).sort((a, b) => String(a.from).localeCompare(String(b.from)));
 
   const out = {
     version: 1,
     generatedAt: new Date().toISOString(),
     sources: {
-      eec: eec.source,
-      eecGeneratedAt: eec.generatedAt,
+      eec: eec.source ?? "EEC registry",
+      eecGeneratedAt: eec.generatedAt ?? null,
       staticUpdatedAt: staticRules.updatedAt
     },
     rules: {
-      exact: Array.from(exactMap.values()).sort((a, b) => a.code.localeCompare(b.code)),
-      ranges: Array.from(rangeMap.values()).sort((a, b) => a.from.localeCompare(b.from)),
-      prefix: Array.from(prefixSet).sort((a, b) => a.localeCompare(b))
+      prefix,   // <-- объекты с source/raw
+      exact: exact10,
+      ranges
     }
   };
 
   fs.writeFileSync(outPath, JSON.stringify(out, null, 2), "utf-8");
   console.log("OK:", outPath);
+  console.log(`prefix: ${prefix.length}, exact10: ${exact10.length}, ranges: ${ranges.length}`);
 }
 
 main();

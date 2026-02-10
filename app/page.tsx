@@ -7,7 +7,12 @@ type ApiResponse = {
   normalized: string;
   requiresSeal: boolean;
   result:
-    | { ok: true; reason: string; matched?: any }
+    | {
+        ok: true;
+        reason: string;
+        matched: any;
+        eec?: { raw: string; title: string; url: string };
+      }
     | { ok: false; reason: string };
 };
 
@@ -15,6 +20,7 @@ export default function Page() {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<ApiResponse | null>(null);
+
   const normalizedPreview = useMemo(() => code.replace(/\D/g, ""), [code]);
 
   async function onCheck() {
@@ -39,18 +45,20 @@ export default function Page() {
       : { text: "Не требуется", style: { background: "#f4f4f4", borderColor: "#d0d0d0" } }
     : null;
 
+  const eec = data && data.result && (data.result as any).ok ? (data.result as any).eec : undefined;
+
   return (
-    <main style={{ maxWidth: 760, margin: "40px auto", padding: 16, fontFamily: "system-ui, sans-serif" }}>
+    <main style={{ maxWidth: 820, margin: "40px auto", padding: 16 }}>
       <h1 style={{ fontSize: 28, marginBottom: 8 }}>Проверка навигационной пломбы по ТН ВЭД (Этап 1)</h1>
       <p style={{ marginTop: 0, opacity: 0.75 }}>
-        Введите код ТН ВЭД → получите ответ, подпадает ли товар под отслеживание с навигационной пломбой.
+        Введите код ТН ВЭД → получите ответ. Источники: статичные правила + (при совпадении) реестр ЕЭК.
       </p>
 
       <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 18 }}>
         <input
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          placeholder="Например: 8517 или 220300 или 2939790000"
+          placeholder="Например: 8521 или 8521000000 или 8703"
           style={{
             flex: 1,
             padding: "12px 14px",
@@ -107,6 +115,46 @@ export default function Page() {
             <b>Причина:</b> {data.result.reason}
           </div>
 
+          {/* КРАСИВЫЙ БЛОК ЕЭК */}
+          {eec && (
+            <div
+              style={{
+                marginTop: 12,
+                padding: 14,
+                borderRadius: 14,
+                border: "1px solid #d7e9ff",
+                background: "#f3f8ff"
+              }}
+            >
+              <div style={{ fontWeight: 800, marginBottom: 6 }}>Источник</div>
+              <div style={{ marginBottom: 10, opacity: 0.95 }}>
+                <div>
+                  <b>Основание:</b> {eec.raw}
+                </div>
+                <div style={{ marginTop: 4 }}>{eec.title}</div>
+              </div>
+
+              <a
+                href={eec.url}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "inline-flex",
+                  gap: 8,
+                  alignItems: "center",
+                  padding: "10px 12px",
+                  borderRadius: 12,
+                  border: "1px solid #b6d6ff",
+                  background: "#ffffff",
+                  textDecoration: "none",
+                  fontWeight: 700
+                }}
+              >
+                Открыть реестр ЕЭК <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          )}
+
           <details style={{ marginTop: 10 }}>
             <summary style={{ cursor: "pointer" }}>Технические детали</summary>
             <pre style={{ marginTop: 10, padding: 12, borderRadius: 12, background: "#f7f7f7", overflowX: "auto" }}>
@@ -115,12 +163,6 @@ export default function Page() {
           </details>
         </section>
       )}
-
-      <section style={{ marginTop: 20, opacity: 0.8, fontSize: 13, lineHeight: 1.45 }}>
-        <p style={{ marginBottom: 6 }}>
-          Источник статичных правил: <code>data/rules.csv</code>. Динамический список (санкционные товары) обновляется из реестра ЕЭК через GitHub Actions.
-        </p>
-      </section>
     </main>
   );
 }

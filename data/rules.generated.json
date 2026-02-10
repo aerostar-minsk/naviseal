@@ -1,65 +1,1086 @@
 {
   "version": 1,
-  "generatedAt": "2026-02-06T19:34:48.964Z",
+  "generatedAt": "2026-02-09T20:12:54.296Z",
   "sources": {
-    "eec": "EEC registry (special economic measures) — robust table parser",
-    "eecGeneratedAt": "2026-02-06T19:34:44.830298Z",
-    "staticUpdatedAt": "2026-02-06T13:15:40.691Z"
+    "eec": "EEC registry — robust parser (tables + words + fallbacks), 4/6/10 aware",
+    "eecGeneratedAt": "2026-02-09T20:12:05.773121Z",
+    "staticUpdatedAt": "2026-02-08T19:13:41.691Z"
   },
   "rules": {
+    "prefix": [
+      {
+        "prefix": "0000",
+        "source": "eec"
+      },
+      {
+        "prefix": "010391",
+        "source": "eec"
+      },
+      {
+        "prefix": "010392",
+        "source": "eec"
+      },
+      {
+        "prefix": "0105",
+        "source": "eec"
+      },
+      {
+        "prefix": "0201",
+        "source": "eec"
+      },
+      {
+        "prefix": "0202",
+        "source": "eec"
+      },
+      {
+        "prefix": "0203",
+        "source": "eec"
+      },
+      {
+        "prefix": "0207",
+        "source": "eec"
+      },
+      {
+        "prefix": "0209",
+        "source": "eec"
+      },
+      {
+        "prefix": "0210",
+        "source": "eec",
+        "raw": "из 0210"
+      },
+      {
+        "prefix": "0302",
+        "source": "eec"
+      },
+      {
+        "prefix": "0303",
+        "source": "eec"
+      },
+      {
+        "prefix": "0304",
+        "source": "eec"
+      },
+      {
+        "prefix": "0305",
+        "source": "eec"
+      },
+      {
+        "prefix": "0306",
+        "source": "eec",
+        "raw": "из 0306"
+      },
+      {
+        "prefix": "0308",
+        "source": "eec"
+      },
+      {
+        "prefix": "0309",
+        "source": "eec"
+      },
+      {
+        "prefix": "0401",
+        "source": "eec",
+        "raw": "из 0401"
+      },
+      {
+        "prefix": "0402",
+        "source": "eec",
+        "raw": "из 0402"
+      },
+      {
+        "prefix": "0403",
+        "source": "eec",
+        "raw": "из 0403"
+      },
+      {
+        "prefix": "0404",
+        "source": "eec",
+        "raw": "из 0404"
+      },
+      {
+        "prefix": "0405",
+        "source": "eec",
+        "raw": "из 0405"
+      },
+      {
+        "prefix": "0406",
+        "source": "eec"
+      },
+      {
+        "prefix": "040607",
+        "source": "eec"
+      },
+      {
+        "prefix": "070131",
+        "source": "eec"
+      },
+      {
+        "prefix": "0702",
+        "source": "eec"
+      },
+      {
+        "prefix": "0705",
+        "source": "eec"
+      },
+      {
+        "prefix": "0707",
+        "source": "eec"
+      },
+      {
+        "prefix": "070700",
+        "source": "eec"
+      },
+      {
+        "prefix": "0708",
+        "source": "eec"
+      },
+      {
+        "prefix": "0709",
+        "source": "eec"
+      },
+      {
+        "prefix": "0710",
+        "source": "eec"
+      },
+      {
+        "prefix": "0711",
+        "source": "eec"
+      },
+      {
+        "prefix": "0714",
+        "source": "eec"
+      },
+      {
+        "prefix": "0801",
+        "source": "eec"
+      },
+      {
+        "prefix": "0802",
+        "source": "eec"
+      },
+      {
+        "prefix": "0803",
+        "source": "eec"
+      },
+      {
+        "prefix": "0804",
+        "source": "eec"
+      },
+      {
+        "prefix": "0805",
+        "source": "eec"
+      },
+      {
+        "prefix": "0806",
+        "source": "eec"
+      },
+      {
+        "prefix": "0807",
+        "source": "eec"
+      },
+      {
+        "prefix": "0809",
+        "source": "eec"
+      },
+      {
+        "prefix": "0810",
+        "source": "eec"
+      },
+      {
+        "prefix": "0811",
+        "source": "eec"
+      },
+      {
+        "prefix": "0813",
+        "source": "eec"
+      },
+      {
+        "prefix": "1000",
+        "source": "eec"
+      },
+      {
+        "prefix": "100000",
+        "source": "eec"
+      },
+      {
+        "prefix": "1001",
+        "source": "eec"
+      },
+      {
+        "prefix": "101000",
+        "source": "eec"
+      },
+      {
+        "prefix": "101100",
+        "source": "eec"
+      },
+      {
+        "prefix": "1035",
+        "source": "eec"
+      },
+      {
+        "prefix": "1173",
+        "source": "eec"
+      },
+      {
+        "prefix": "123456",
+        "source": "eec"
+      },
+      {
+        "prefix": "1292",
+        "source": "eec"
+      },
+      {
+        "prefix": "1501",
+        "source": "eec"
+      },
+      {
+        "prefix": "1502",
+        "source": "eec"
+      },
+      {
+        "prefix": "1503",
+        "source": "eec"
+      },
+      {
+        "prefix": "150300",
+        "source": "eec"
+      },
+      {
+        "prefix": "150325",
+        "source": "eec"
+      },
+      {
+        "prefix": "1512",
+        "source": "eec"
+      },
+      {
+        "prefix": "1600",
+        "source": "eec"
+      },
+      {
+        "prefix": "1603",
+        "source": "eec"
+      },
+      {
+        "prefix": "160300",
+        "source": "eec"
+      },
+      {
+        "prefix": "1604",
+        "source": "eec"
+      },
+      {
+        "prefix": "1605",
+        "source": "eec"
+      },
+      {
+        "prefix": "1685",
+        "source": "eec"
+      },
+      {
+        "prefix": "1704",
+        "source": "eec"
+      },
+      {
+        "prefix": "1716",
+        "source": "eec"
+      },
+      {
+        "prefix": "171683",
+        "source": "eec"
+      },
+      {
+        "prefix": "1806",
+        "source": "eec"
+      },
+      {
+        "prefix": "180610",
+        "source": "eec"
+      },
+      {
+        "prefix": "180620",
+        "source": "eec"
+      },
+      {
+        "prefix": "1902",
+        "source": "eec"
+      },
+      {
+        "prefix": "190230",
+        "source": "eec"
+      },
+      {
+        "prefix": "1905",
+        "source": "eec"
+      },
+      {
+        "prefix": "190506",
+        "source": "eec"
+      },
+      {
+        "prefix": "2001",
+        "source": "eec"
+      },
+      {
+        "prefix": "2002",
+        "source": "eec"
+      },
+      {
+        "prefix": "2004",
+        "source": "eec"
+      },
+      {
+        "prefix": "2005",
+        "source": "eec"
+      },
+      {
+        "prefix": "2007",
+        "source": "eec"
+      },
+      {
+        "prefix": "2009",
+        "source": "eec"
+      },
+      {
+        "prefix": "2014",
+        "source": "eec"
+      },
+      {
+        "prefix": "2016",
+        "source": "eec"
+      },
+      {
+        "prefix": "2017",
+        "source": "eec"
+      },
+      {
+        "prefix": "2018",
+        "source": "eec"
+      },
+      {
+        "prefix": "2019",
+        "source": "eec"
+      },
+      {
+        "prefix": "2021",
+        "source": "eec"
+      },
+      {
+        "prefix": "2022",
+        "source": "eec"
+      },
+      {
+        "prefix": "2023",
+        "source": "eec"
+      },
+      {
+        "prefix": "202331",
+        "source": "eec"
+      },
+      {
+        "prefix": "2105",
+        "source": "eec"
+      },
+      {
+        "prefix": "210500",
+        "source": "eec"
+      },
+      {
+        "prefix": "2203",
+        "source": "eec"
+      },
+      {
+        "prefix": "220300",
+        "source": "eec"
+      },
+      {
+        "prefix": "2204",
+        "source": "eec"
+      },
+      {
+        "prefix": "220410",
+        "source": "eec"
+      },
+      {
+        "prefix": "220421",
+        "source": "eec"
+      },
+      {
+        "prefix": "220422",
+        "source": "eec"
+      },
+      {
+        "prefix": "220429",
+        "source": "eec"
+      },
+      {
+        "prefix": "2205",
+        "source": "eec"
+      },
+      {
+        "prefix": "2206",
+        "source": "eec"
+      },
+      {
+        "prefix": "220600",
+        "source": "eec"
+      },
+      {
+        "prefix": "2207",
+        "source": "static"
+      },
+      {
+        "prefix": "2208",
+        "source": "eec"
+      },
+      {
+        "prefix": "2240",
+        "source": "eec"
+      },
+      {
+        "prefix": "2304",
+        "source": "eec"
+      },
+      {
+        "prefix": "2305",
+        "source": "eec"
+      },
+      {
+        "prefix": "2306",
+        "source": "eec"
+      },
+      {
+        "prefix": "230690",
+        "source": "eec"
+      },
+      {
+        "prefix": "2309",
+        "source": "eec"
+      },
+      {
+        "prefix": "2401",
+        "source": "static"
+      },
+      {
+        "prefix": "2402",
+        "source": "static"
+      },
+      {
+        "prefix": "2403",
+        "source": "static"
+      },
+      {
+        "prefix": "2404",
+        "source": "static"
+      },
+      {
+        "prefix": "2501",
+        "source": "eec"
+      },
+      {
+        "prefix": "250100",
+        "source": "eec",
+        "raw": "из 250100"
+      },
+      {
+        "prefix": "2515",
+        "source": "eec"
+      },
+      {
+        "prefix": "2516",
+        "source": "eec"
+      },
+      {
+        "prefix": "2710",
+        "source": "eec",
+        "raw": "из 2710"
+      },
+      {
+        "prefix": "2711",
+        "source": "eec",
+        "raw": "из 2711"
+      },
+      {
+        "prefix": "300003",
+        "source": "eec"
+      },
+      {
+        "prefix": "3214",
+        "source": "eec",
+        "raw": "из 3214"
+      },
+      {
+        "prefix": "3304",
+        "source": "eec",
+        "raw": "из 3304"
+      },
+      {
+        "prefix": "3305",
+        "source": "eec",
+        "raw": "из 3305"
+      },
+      {
+        "prefix": "3307",
+        "source": "eec",
+        "raw": "из 3307"
+      },
+      {
+        "prefix": "3401",
+        "source": "eec"
+      },
+      {
+        "prefix": "3402",
+        "source": "eec",
+        "raw": "из 3402"
+      },
+      {
+        "prefix": "3403",
+        "source": "eec",
+        "raw": "из 3403"
+      },
+      {
+        "prefix": "3405",
+        "source": "eec",
+        "raw": "из 3405"
+      },
+      {
+        "prefix": "3506",
+        "source": "eec",
+        "raw": "из 3506"
+      },
+      {
+        "prefix": "3507",
+        "source": "eec"
+      },
+      {
+        "prefix": "3811",
+        "source": "eec"
+      },
+      {
+        "prefix": "3824",
+        "source": "eec"
+      },
+      {
+        "prefix": "3827",
+        "source": "eec"
+      },
+      {
+        "prefix": "3917",
+        "source": "eec"
+      },
+      {
+        "prefix": "3923",
+        "source": "eec",
+        "raw": "из 3923"
+      },
+      {
+        "prefix": "3926",
+        "source": "eec"
+      },
+      {
+        "prefix": "4016",
+        "source": "eec"
+      },
+      {
+        "prefix": "4303",
+        "source": "static"
+      },
+      {
+        "prefix": "4407",
+        "source": "eec"
+      },
+      {
+        "prefix": "4410",
+        "source": "eec"
+      },
+      {
+        "prefix": "4412",
+        "source": "eec"
+      },
+      {
+        "prefix": "4415",
+        "source": "eec"
+      },
+      {
+        "prefix": "4801",
+        "source": "eec"
+      },
+      {
+        "prefix": "4802",
+        "source": "eec"
+      },
+      {
+        "prefix": "4803",
+        "source": "eec"
+      },
+      {
+        "prefix": "4804",
+        "source": "eec"
+      },
+      {
+        "prefix": "4805",
+        "source": "eec"
+      },
+      {
+        "prefix": "4807",
+        "source": "eec"
+      },
+      {
+        "prefix": "480700",
+        "source": "eec"
+      },
+      {
+        "prefix": "4808",
+        "source": "eec"
+      },
+      {
+        "prefix": "4814",
+        "source": "eec"
+      },
+      {
+        "prefix": "4819",
+        "source": "eec"
+      },
+      {
+        "prefix": "5000",
+        "source": "eec"
+      },
+      {
+        "prefix": "5905",
+        "source": "eec"
+      },
+      {
+        "prefix": "590500",
+        "source": "eec"
+      },
+      {
+        "prefix": "6104",
+        "source": "eec"
+      },
+      {
+        "prefix": "6109",
+        "source": "eec"
+      },
+      {
+        "prefix": "6110",
+        "source": "eec"
+      },
+      {
+        "prefix": "6115",
+        "source": "eec"
+      },
+      {
+        "prefix": "6204",
+        "source": "eec"
+      },
+      {
+        "prefix": "6212",
+        "source": "eec"
+      },
+      {
+        "prefix": "6402",
+        "source": "eec"
+      },
+      {
+        "prefix": "6403",
+        "source": "eec"
+      },
+      {
+        "prefix": "6406",
+        "source": "eec"
+      },
+      {
+        "prefix": "7304",
+        "source": "eec"
+      },
+      {
+        "prefix": "730419",
+        "source": "eec"
+      },
+      {
+        "prefix": "730429",
+        "source": "eec"
+      },
+      {
+        "prefix": "730439",
+        "source": "eec"
+      },
+      {
+        "prefix": "730449",
+        "source": "eec"
+      },
+      {
+        "prefix": "730459",
+        "source": "eec"
+      },
+      {
+        "prefix": "730630",
+        "source": "eec"
+      },
+      {
+        "prefix": "730661",
+        "source": "eec"
+      },
+      {
+        "prefix": "8406",
+        "source": "eec"
+      },
+      {
+        "prefix": "840690",
+        "source": "eec"
+      },
+      {
+        "prefix": "841850",
+        "source": "eec"
+      },
+      {
+        "prefix": "843231",
+        "source": "eec"
+      },
+      {
+        "prefix": "843239",
+        "source": "eec"
+      },
+      {
+        "prefix": "8434",
+        "source": "eec"
+      },
+      {
+        "prefix": "8437",
+        "source": "eec"
+      },
+      {
+        "prefix": "850110",
+        "source": "eec"
+      },
+      {
+        "prefix": "850140",
+        "source": "eec"
+      },
+      {
+        "prefix": "850152",
+        "source": "eec"
+      },
+      {
+        "prefix": "850153",
+        "source": "eec"
+      },
+      {
+        "prefix": "850161",
+        "source": "eec"
+      },
+      {
+        "prefix": "8502",
+        "source": "eec"
+      },
+      {
+        "prefix": "8517",
+        "source": "static"
+      },
+      {
+        "prefix": "8519",
+        "source": "static"
+      },
+      {
+        "prefix": "8521",
+        "source": "static"
+      },
+      {
+        "prefix": "854411",
+        "source": "eec"
+      },
+      {
+        "prefix": "8701",
+        "source": "eec"
+      },
+      {
+        "prefix": "8703",
+        "source": "eec",
+        "raw": "из 8703"
+      },
+      {
+        "prefix": "8705",
+        "source": "eec"
+      },
+      {
+        "prefix": "8709",
+        "source": "eec"
+      },
+      {
+        "prefix": "901000",
+        "source": "eec"
+      },
+      {
+        "prefix": "901100",
+        "source": "eec"
+      },
+      {
+        "prefix": "909009",
+        "source": "eec"
+      },
+      {
+        "prefix": "9619",
+        "source": "eec"
+      },
+      {
+        "prefix": "961900",
+        "source": "eec"
+      }
+    ],
     "exact": [
       {
-        "code": "220300",
-        "tag": "алкоголь",
-        "note": "Алкогольная продукция (2203 00)",
-        "source": "static"
+        "code": "0103100000",
+        "source": "eec"
       },
       {
-        "code": "2204",
-        "tag": "алкоголь",
-        "source": "static"
+        "code": "0206101000",
+        "source": "eec"
       },
       {
-        "code": "2205",
-        "tag": "алкоголь",
-        "source": "static"
+        "code": "0206291000",
+        "source": "eec"
       },
       {
-        "code": "220600",
-        "tag": "алкоголь",
-        "note": "Алкогольная продукция (2206 00)",
-        "source": "static"
+        "code": "0206300001",
+        "source": "eec"
       },
       {
-        "code": "2207",
-        "tag": "алкоголь",
-        "source": "static"
+        "code": "0206300003",
+        "source": "eec"
       },
       {
-        "code": "2208",
-        "tag": "алкоголь",
-        "source": "static"
+        "code": "0206410001",
+        "source": "eec"
       },
       {
-        "code": "2401",
-        "tag": "табак",
-        "source": "static"
+        "code": "0206490001",
+        "source": "eec"
       },
       {
-        "code": "2402",
-        "tag": "табак",
-        "source": "static"
+        "code": "0206801000",
+        "source": "eec"
       },
       {
-        "code": "2403",
-        "tag": "табак",
-        "source": "static"
+        "code": "0206901000",
+        "source": "eec"
       },
       {
-        "code": "2404",
-        "tag": "никотин",
-        "note": "Никотиносодержащая продукция",
-        "source": "static"
+        "code": "0301110000",
+        "source": "eec"
+      },
+      {
+        "code": "0301190000",
+        "source": "eec"
+      },
+      {
+        "code": "0307609000",
+        "source": "eec"
+      },
+      {
+        "code": "0701100000",
+        "source": "eec"
+      },
+      {
+        "code": "0701905000",
+        "source": "eec"
+      },
+      {
+        "code": "0703101100",
+        "source": "eec"
+      },
+      {
+        "code": "0703101900",
+        "source": "eec"
+      },
+      {
+        "code": "0704901001",
+        "source": "eec"
+      },
+      {
+        "code": "0706100001",
+        "source": "eec"
+      },
+      {
+        "code": "0706909001",
+        "source": "eec"
+      },
+      {
+        "code": "0712901100",
+        "source": "eec"
+      },
+      {
+        "code": "0713200000",
+        "source": "eec"
+      },
+      {
+        "code": "0713400000",
+        "source": "eec"
+      },
+      {
+        "code": "0713500000",
+        "source": "eec"
+      },
+      {
+        "code": "0808108003",
+        "source": "eec"
+      },
+      {
+        "code": "1003900000",
+        "source": "eec"
+      },
+      {
+        "code": "1108120000",
+        "source": "eec"
+      },
+      {
+        "code": "1511901902",
+        "source": "eec"
+      },
+      {
+        "code": "1511909902",
+        "source": "eec"
+      },
+      {
+        "code": "1601001000",
+        "source": "eec"
+      },
+      {
+        "code": "1601009101",
+        "source": "eec"
+      },
+      {
+        "code": "1601009901",
+        "source": "eec"
+      },
+      {
+        "code": "1602100099",
+        "source": "eec"
+      },
+      {
+        "code": "1602909901",
+        "source": "eec"
+      },
+      {
+        "code": "1701910015",
+        "source": "eec"
+      },
+      {
+        "code": "1701991009",
+        "source": "eec"
+      },
+      {
+        "code": "1702305000",
+        "source": "eec"
+      },
+      {
+        "code": "1702409000",
+        "source": "eec"
+      },
+      {
+        "code": "1702609500",
+        "source": "eec"
+      },
+      {
+        "code": "1702905000",
+        "source": "eec"
+      },
+      {
+        "code": "1803100000",
+        "source": "eec"
+      },
+      {
+        "code": "1901901100",
+        "source": "eec"
+      },
+      {
+        "code": "1901909200",
+        "source": "eec"
+      },
+      {
+        "code": "1901909800",
+        "source": "eec"
+      },
+      {
+        "code": "1904101000",
+        "source": "eec"
+      },
+      {
+        "code": "1904109000",
+        "source": "eec"
+      },
+      {
+        "code": "1904201000",
+        "source": "eec"
+      },
+      {
+        "code": "2006002004",
+        "source": "eec"
+      },
+      {
+        "code": "2006002005",
+        "source": "eec"
+      },
+      {
+        "code": "2103200000",
+        "source": "eec"
+      },
+      {
+        "code": "2103909001",
+        "source": "eec"
+      },
+      {
+        "code": "2103909009",
+        "source": "eec"
+      },
+      {
+        "code": "2104100000",
+        "source": "eec"
+      },
+      {
+        "code": "2106909300",
+        "source": "eec"
+      },
+      {
+        "code": "2106909804",
+        "source": "eec"
+      },
+      {
+        "code": "2106909805",
+        "source": "eec"
+      },
+      {
+        "code": "2106909808",
+        "source": "eec"
+      },
+      {
+        "code": "2202100000",
+        "source": "eec"
+      },
+      {
+        "code": "2303101100",
+        "source": "eec"
+      },
+      {
+        "code": "2517101000",
+        "source": "eec"
+      },
+      {
+        "code": "2517102000",
+        "source": "eec"
+      },
+      {
+        "code": "2517108000",
+        "source": "eec"
+      },
+      {
+        "code": "2517490000",
+        "source": "eec"
+      },
+      {
+        "code": "2905450009",
+        "source": "eec"
       },
       {
         "code": "2939790000",
@@ -74,30 +1095,728 @@
         "source": "static"
       },
       {
-        "code": "4303",
-        "tag": "мех",
-        "note": "Изделия из меха",
-        "source": "static"
+        "code": "3006930000",
+        "source": "eec"
       },
       {
-        "code": "6110",
-        "tag": "одежда",
-        "source": "static"
+        "code": "3305100000",
+        "source": "eec"
       },
       {
-        "code": "8517",
-        "tag": "техника",
-        "source": "static"
+        "code": "3305900009",
+        "source": "eec"
       },
       {
-        "code": "8519",
-        "tag": "техника",
-        "source": "static"
+        "code": "3306100000",
+        "source": "eec"
       },
       {
-        "code": "8521",
-        "tag": "техника",
-        "source": "static"
+        "code": "3307100000",
+        "source": "eec"
+      },
+      {
+        "code": "3307200000",
+        "source": "eec"
+      },
+      {
+        "code": "3307490000",
+        "source": "eec"
+      },
+      {
+        "code": "3402909000",
+        "source": "eec"
+      },
+      {
+        "code": "3925908001",
+        "source": "eec"
+      },
+      {
+        "code": "4014900000",
+        "source": "eec"
+      },
+      {
+        "code": "7217101000",
+        "source": "eec"
+      },
+      {
+        "code": "7217103100",
+        "source": "eec"
+      },
+      {
+        "code": "7217103900",
+        "source": "eec"
+      },
+      {
+        "code": "7217105000",
+        "source": "eec"
+      },
+      {
+        "code": "7217109000",
+        "source": "eec"
+      },
+      {
+        "code": "7217203000",
+        "source": "eec"
+      },
+      {
+        "code": "7217205000",
+        "source": "eec"
+      },
+      {
+        "code": "7217209000",
+        "source": "eec"
+      },
+      {
+        "code": "7217902000",
+        "source": "eec"
+      },
+      {
+        "code": "7306290000",
+        "source": "eec"
+      },
+      {
+        "code": "7312104909",
+        "source": "eec"
+      },
+      {
+        "code": "7312106109",
+        "source": "eec"
+      },
+      {
+        "code": "7312108101",
+        "source": "eec"
+      },
+      {
+        "code": "7312108108",
+        "source": "eec"
+      },
+      {
+        "code": "7312108301",
+        "source": "eec"
+      },
+      {
+        "code": "7312108308",
+        "source": "eec"
+      },
+      {
+        "code": "7312108501",
+        "source": "eec"
+      },
+      {
+        "code": "7312108508",
+        "source": "eec"
+      },
+      {
+        "code": "7314140000",
+        "source": "eec"
+      },
+      {
+        "code": "7314190000",
+        "source": "eec"
+      },
+      {
+        "code": "7314410000",
+        "source": "eec"
+      },
+      {
+        "code": "7318158100",
+        "source": "eec"
+      },
+      {
+        "code": "7318158900",
+        "source": "eec"
+      },
+      {
+        "code": "7318159008",
+        "source": "eec"
+      },
+      {
+        "code": "7318169109",
+        "source": "eec"
+      },
+      {
+        "code": "7318169900",
+        "source": "eec"
+      },
+      {
+        "code": "7322110000",
+        "source": "eec"
+      },
+      {
+        "code": "7322190000",
+        "source": "eec"
+      },
+      {
+        "code": "7323940000",
+        "source": "eec"
+      },
+      {
+        "code": "8207401000",
+        "source": "eec"
+      },
+      {
+        "code": "8207403000",
+        "source": "eec"
+      },
+      {
+        "code": "8207409000",
+        "source": "eec"
+      },
+      {
+        "code": "8207501000",
+        "source": "eec"
+      },
+      {
+        "code": "8207503000",
+        "source": "eec"
+      },
+      {
+        "code": "8207505000",
+        "source": "eec"
+      },
+      {
+        "code": "8207506000",
+        "source": "eec"
+      },
+      {
+        "code": "8207507000",
+        "source": "eec"
+      },
+      {
+        "code": "8207509000",
+        "source": "eec"
+      },
+      {
+        "code": "8207601000",
+        "source": "eec"
+      },
+      {
+        "code": "8207603000",
+        "source": "eec"
+      },
+      {
+        "code": "8207605000",
+        "source": "eec"
+      },
+      {
+        "code": "8207607000",
+        "source": "eec"
+      },
+      {
+        "code": "8207609000",
+        "source": "eec"
+      },
+      {
+        "code": "8207701000",
+        "source": "eec"
+      },
+      {
+        "code": "8207703100",
+        "source": "eec"
+      },
+      {
+        "code": "8207703700",
+        "source": "eec"
+      },
+      {
+        "code": "8207709000",
+        "source": "eec"
+      },
+      {
+        "code": "8207801100",
+        "source": "eec"
+      },
+      {
+        "code": "8207801900",
+        "source": "eec"
+      },
+      {
+        "code": "8207809000",
+        "source": "eec"
+      },
+      {
+        "code": "8209002000",
+        "source": "eec"
+      },
+      {
+        "code": "8209008000",
+        "source": "eec"
+      },
+      {
+        "code": "8309901000",
+        "source": "eec"
+      },
+      {
+        "code": "8309909000",
+        "source": "eec"
+      },
+      {
+        "code": "8402110001",
+        "source": "eec"
+      },
+      {
+        "code": "8402120001",
+        "source": "eec"
+      },
+      {
+        "code": "8402191001",
+        "source": "eec"
+      },
+      {
+        "code": "8402199001",
+        "source": "eec"
+      },
+      {
+        "code": "8402200001",
+        "source": "eec"
+      },
+      {
+        "code": "8402900001",
+        "source": "eec"
+      },
+      {
+        "code": "8403101000",
+        "source": "eec"
+      },
+      {
+        "code": "8403109000",
+        "source": "eec"
+      },
+      {
+        "code": "8411810002",
+        "source": "eec"
+      },
+      {
+        "code": "8411810003",
+        "source": "eec"
+      },
+      {
+        "code": "8411810008",
+        "source": "eec"
+      },
+      {
+        "code": "8411828001",
+        "source": "eec"
+      },
+      {
+        "code": "8413910008",
+        "source": "eec"
+      },
+      {
+        "code": "8414802200",
+        "source": "eec"
+      },
+      {
+        "code": "8414807500",
+        "source": "eec"
+      },
+      {
+        "code": "8418109000",
+        "source": "eec"
+      },
+      {
+        "code": "8426410001",
+        "source": "eec"
+      },
+      {
+        "code": "8426410007",
+        "source": "eec"
+      },
+      {
+        "code": "8426490010",
+        "source": "eec"
+      },
+      {
+        "code": "8426490091",
+        "source": "eec"
+      },
+      {
+        "code": "8426490099",
+        "source": "eec"
+      },
+      {
+        "code": "8427101000",
+        "source": "eec"
+      },
+      {
+        "code": "8427109000",
+        "source": "eec"
+      },
+      {
+        "code": "8427201100",
+        "source": "eec"
+      },
+      {
+        "code": "8427201909",
+        "source": "eec"
+      },
+      {
+        "code": "8427209000",
+        "source": "eec"
+      },
+      {
+        "code": "8428700001",
+        "source": "eec"
+      },
+      {
+        "code": "8428907800",
+        "source": "eec"
+      },
+      {
+        "code": "8429110010",
+        "source": "eec"
+      },
+      {
+        "code": "8429110020",
+        "source": "eec"
+      },
+      {
+        "code": "8429110090",
+        "source": "eec"
+      },
+      {
+        "code": "8429190001",
+        "source": "eec"
+      },
+      {
+        "code": "8429190009",
+        "source": "eec"
+      },
+      {
+        "code": "8429200010",
+        "source": "eec"
+      },
+      {
+        "code": "8429200099",
+        "source": "eec"
+      },
+      {
+        "code": "8429401000",
+        "source": "eec"
+      },
+      {
+        "code": "8429403000",
+        "source": "eec"
+      },
+      {
+        "code": "8429409000",
+        "source": "eec"
+      },
+      {
+        "code": "8429519100",
+        "source": "eec"
+      },
+      {
+        "code": "8429519900",
+        "source": "eec"
+      },
+      {
+        "code": "8429521001",
+        "source": "eec"
+      },
+      {
+        "code": "8429521009",
+        "source": "eec"
+      },
+      {
+        "code": "8429529001",
+        "source": "eec"
+      },
+      {
+        "code": "8429590000",
+        "source": "eec"
+      },
+      {
+        "code": "8432900000",
+        "source": "eec"
+      },
+      {
+        "code": "8433900000",
+        "source": "eec"
+      },
+      {
+        "code": "8436100000",
+        "source": "eec"
+      },
+      {
+        "code": "8438101000",
+        "source": "eec"
+      },
+      {
+        "code": "8438300000",
+        "source": "eec"
+      },
+      {
+        "code": "8457109008",
+        "source": "eec"
+      },
+      {
+        "code": "8458112000",
+        "source": "eec"
+      },
+      {
+        "code": "8458990009",
+        "source": "eec"
+      },
+      {
+        "code": "8459210000",
+        "source": "eec"
+      },
+      {
+        "code": "8459410009",
+        "source": "eec"
+      },
+      {
+        "code": "8459490000",
+        "source": "eec"
+      },
+      {
+        "code": "8459611000",
+        "source": "eec"
+      },
+      {
+        "code": "8459619009",
+        "source": "eec"
+      },
+      {
+        "code": "8459699000",
+        "source": "eec"
+      },
+      {
+        "code": "8460199009",
+        "source": "eec"
+      },
+      {
+        "code": "8460292008",
+        "source": "eec"
+      },
+      {
+        "code": "8460310009",
+        "source": "eec"
+      },
+      {
+        "code": "8460390000",
+        "source": "eec"
+      },
+      {
+        "code": "8460401000",
+        "source": "eec"
+      },
+      {
+        "code": "8460409000",
+        "source": "eec"
+      },
+      {
+        "code": "8460909009",
+        "source": "eec"
+      },
+      {
+        "code": "8461403100",
+        "source": "eec"
+      },
+      {
+        "code": "8461409000",
+        "source": "eec"
+      },
+      {
+        "code": "8474320000",
+        "source": "eec"
+      },
+      {
+        "code": "8481309108",
+        "source": "eec"
+      },
+      {
+        "code": "8481805910",
+        "source": "eec"
+      },
+      {
+        "code": "8481808199",
+        "source": "eec"
+      },
+      {
+        "code": "8483109500",
+        "source": "eec"
+      },
+      {
+        "code": "8483405109",
+        "source": "eec"
+      },
+      {
+        "code": "8483405900",
+        "source": "eec"
+      },
+      {
+        "code": "8501310000",
+        "source": "eec"
+      },
+      {
+        "code": "8501340000",
+        "source": "eec"
+      },
+      {
+        "code": "8501620000",
+        "source": "eec"
+      },
+      {
+        "code": "8501630000",
+        "source": "eec"
+      },
+      {
+        "code": "8501640000",
+        "source": "eec"
+      },
+      {
+        "code": "8501710000",
+        "source": "eec"
+      },
+      {
+        "code": "8501720000",
+        "source": "eec"
+      },
+      {
+        "code": "8501800000",
+        "source": "eec"
+      },
+      {
+        "code": "8504210000",
+        "source": "eec"
+      },
+      {
+        "code": "8504221000",
+        "source": "eec"
+      },
+      {
+        "code": "8504229000",
+        "source": "eec"
+      },
+      {
+        "code": "8504230001",
+        "source": "eec"
+      },
+      {
+        "code": "8504230009",
+        "source": "eec"
+      },
+      {
+        "code": "8524110019",
+        "source": "eec"
+      },
+      {
+        "code": "8524120019",
+        "source": "eec"
+      },
+      {
+        "code": "8524190019",
+        "source": "eec"
+      },
+      {
+        "code": "8524910019",
+        "source": "eec"
+      },
+      {
+        "code": "8524920019",
+        "source": "eec"
+      },
+      {
+        "code": "8524990019",
+        "source": "eec"
+      },
+      {
+        "code": "8529901019",
+        "source": "eec"
+      },
+      {
+        "code": "8544200000",
+        "source": "eec"
+      },
+      {
+        "code": "8544492000",
+        "source": "eec"
+      },
+      {
+        "code": "8544499102",
+        "source": "eec"
+      },
+      {
+        "code": "8544499301",
+        "source": "eec"
+      },
+      {
+        "code": "8544499302",
+        "source": "eec"
+      },
+      {
+        "code": "8544609001",
+        "source": "eec"
+      },
+      {
+        "code": "8607199009",
+        "source": "eec"
+      },
+      {
+        "code": "8704101011",
+        "source": "eec"
+      },
+      {
+        "code": "8704101019",
+        "source": "eec"
+      },
+      {
+        "code": "8704101021",
+        "source": "eec"
+      },
+      {
+        "code": "8704101022",
+        "source": "eec"
+      },
+      {
+        "code": "8704101029",
+        "source": "eec"
+      },
+      {
+        "code": "8704101080",
+        "source": "eec"
+      },
+      {
+        "code": "8716200000",
+        "source": "eec"
+      },
+      {
+        "code": "9001109001",
+        "source": "eec"
+      },
+      {
+        "code": "9018390000",
+        "source": "eec"
+      },
+      {
+        "code": "9303201000",
+        "source": "eec"
+      },
+      {
+        "code": "9303209500",
+        "source": "eec"
+      },
+      {
+        "code": "9303300000",
+        "source": "eec"
+      },
+      {
+        "code": "9303900000",
+        "source": "eec"
+      },
+      {
+        "code": "9305200001",
+        "source": "eec"
+      },
+      {
+        "code": "9306210000",
+        "source": "eec"
+      },
+      {
+        "code": "9306290000",
+        "source": "eec"
       }
     ],
     "ranges": [
@@ -122,26 +1841,6 @@
         "note": "Техника (8525–8528)",
         "source": "static"
       }
-    ],
-    "prefix": [
-      "0103",
-      "0201",
-      "0202",
-      "0203",
-      "0206",
-      "101000",
-      "2710",
-      "2711",
-      "3214",
-      "3304",
-      "3305",
-      "3307",
-      "3402",
-      "3403",
-      "3405",
-      "3506",
-      "3923",
-      "8703"
     ]
   }
 }
